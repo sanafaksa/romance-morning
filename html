@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Selamat Pagi Adek Dias</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Fira Code", monospace;
+      color: #e5e7eb;
+    }
+
+    .terminal {
+      background: #020617;
+      border-radius: 14px;
+      padding: 24px 28px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 0 30px rgba(56,189,248,0.15);
+      border: 1px solid #0f172a;
+    }
+
+    .line { margin: 6px 0; }
+    .comment { color: #38bdf8; }
+    .keyword { color: #f472b6; }
+    .string { color: #22c55e; }
+    .name { color: #facc15; }
+
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 16px;
+      background: #e5e7eb;
+      animation: blink 1s infinite;
+      margin-left: 4px;
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="terminal">
+    <div class="line comment">// booting morning.js</div>
+    <div class="line comment">// version: romantic-it</div>
+    <br>
+
+    <div class="line">
+      <span class="keyword">const</span> nama =
+      <span class="string">"</span><span class="name">Adek Dias</span><span class="string">"</span>;
+    </div>
+
+    <div class="line">
+      <span class="keyword">const</span> pesan = [
+    </div>
+
+    <div class="line string">&nbsp;&nbsp;"Selamat pagi, Adek Dias,"</div>
+    <div class="line string">&nbsp;&nbsp;"semoga harimu cerah dan lancar."</div>
+    <div class="line string">&nbsp;&nbsp;"Semangat sekolah hari ini,"</div>
+    <div class="line string">&nbsp;&nbsp;"jangan ragu sama kemampuanmu."</div>
+    <div class="line string">&nbsp;&nbsp;"Aku selalu doain dan support kamu."</div>
+    <div class="line string">&nbsp;&nbsp;"Tetap jadi kamu yang hebat."</div>
+    <div class="line">
+      ];
+    </div>
+
+    <br>
+
+    <div class="line">
+      <span class="keyword">function</span> tampilkanPesan(nama, pesan) {
+    </div>
+    <div class="line">
+      &nbsp;&nbsp;<span class="keyword">return</span> pesan.join("\n");
+    </div>
+    <div class="line">}</div>
+
+    <br>
+
+    <div class="line">
+      console.log(tampilkanPesan(nama, pesan));
+      <span class="cursor"></span>
+    </div>
+  </div>
+</body>
+</html>
