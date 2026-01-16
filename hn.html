@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selamat Pagi Dias Ayu Sita</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #020617;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Fira Code", monospace;
+            color: #e5e7eb;
+        }
+
+        .terminal {
+            background: #020617;
+            border: 1px solid #0f172a;
+            border-radius: 18px;
+            padding: 24px 28px;
+            width: 90%;
+            max-width: 650px;
+            box-shadow: 0 0 45px rgba(56, 189, 248, .18);
+            position: relative;
+        }
+
+        .panda {
+            position: absolute;
+            top: -55px;
+            right: 20px;
+            font-size: 56px;
+        }
+
+        .line {
+            margin: 6px 0;
+            white-space: pre-wrap;
+        }
+
+        .comment {
+            color: #38bdf8;
+        }
+
+        .keyword {
+            color: #f472b6;
+        }
+
+        .string {
+            color: #22c55e;
+        }
+
+        .name {
+            color: #facc15;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background: #e5e7eb;
+            margin-left: 4px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50%,
+            100% {
+                opacity: 1;
+            }
+
+            25%,
+            75% {
+                opacity: 0;
+            }
+        }
+
+        button {
+            margin-top: 18px;
+            background: #38bdf8;
+            color: #020617;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 999px;
+            font-family: inherit;
+            cursor: pointer;
+            font-weight: bold;
+            animation: blinkGlow 1.5s infinite;
+        }
+
+        @keyframes blinkGlow {
+            0% {
+                opacity: 1;
+                box-shadow: 0 0 0 rgba(56, 189, 248, 0.2);
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.65;
+                box-shadow: 0 0 22px rgba(56, 189, 248, 0.9);
+                transform: scale(1.06);
+            }
+
+            100% {
+                opacity: 1;
+                box-shadow: 0 0 0 rgba(56, 189, 248, 0.2);
+                transform: scale(1);
+            }
+        }
+
+        /* POPUP */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: #0f172a;
+            color: #facc15;
+            padding: 18px 26px;
+            border-radius: 14px;
+            box-shadow: 0 0 30px rgba(250, 204, 21, .6);
+            font-size: 18px;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease;
+            z-index: 999;
+        }
+
+        .popup.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="terminal">
+        <div class="panda">🐼</div>
+
+        <div class="line comment">// booting romantic-terminal.js</div>
+        <div class="line comment">// by nafian developer/div>
+            <br>
+
+            <div class="line">
+                <span class="keyword">const</span> target =
+                <span class="string">"</span><span class="name">Dias Ayu Sita</span><span class="string">"</span>;
+            </div>
+
+            <br>
+
+            <div id="output" class="line"></div>
+            <span class="cursor"></span>
+
+            <button onclick="senyum()">Senyum Dulu 😊</button>
+        </div>
+
+        <!-- POPUP -->
+        <div id="popup" class="popup">ihh maniss senyumnya 😳💛</div>
+
+        <script>
+            const message = [
+                "Selamat pagi, Dias Ayu Sita,",
+                "semoga hari ini hatimu ringan.",
+                "Semangat sekolah ya,",
+                "jangan takut capek,",
+                "jangan ragu sama kemampuanmu.",
+                "Aku selalu doain dan support kamu.",
+                "Panda ini juga nemenin kamu 🐼"
+            ];
+
+            let lineIndex = 0;
+            let charIndex = 0;
+
+            function startTyping() {
+                document.getElementById("output").innerText = "";
+                lineIndex = 0;
+                charIndex = 0;
+                typeEffect();
+            }
+
+            function typeEffect() {
+                if (lineIndex < message.length) {
+                    if (charIndex < message[lineIndex].length) {
+                        document.getElementById("output").innerText +=
+                            message[lineIndex].charAt(charIndex);
+                        charIndex++;
+                        setTimeout(typeEffect, 45);
+                    } else {
+                        document.getElementById("output").innerText += "\n";
+                        lineIndex++;
+                        charIndex = 0;
+                        setTimeout(typeEffect, 350);
+                    }
+                }
+            }
+
+            function senyum() {
+                startTyping();
+
+                const popup = document.getElementById("popup");
+                popup.classList.add("show");
+
+                setTimeout(() => {
+                    popup.classList.remove("show");
+                }, 3000); // 8 detik
+            }
+
+            // auto start
+            startTyping();
+        </script>
+</body>
+
+</html>
